@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const url =
-  'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
+  'https://api.themoviedb.org/3/trending/movie/week?include_adult=false&language=en-US&page=1';
 
 const options = {
   headers: {
@@ -10,7 +10,23 @@ const options = {
   },
 };
 
-axios
-  .get(url, options)
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+export const fetchData = async () => {
+  const response = await axios.get(url, options);
+
+  return response.data.results;
+};
+
+// export const getTrendMovies = async query => {
+//   try {
+//     const response = await axios.get(urlTrend, {
+//       params: {
+//         ...options.params,
+//         query: query,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// };
