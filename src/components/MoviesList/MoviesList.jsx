@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export default function TrendingMoviesList({ items }) {
+export default function MoviesList({ items }) {
   const location = useLocation();
 
   return (

@@ -2,11 +2,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-// --url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US' \
-
-// const urlTrendings =
-// 'https://api.themoviedb.org/3/trending/movie/week?include_adult=false&language=en-US&page=1';
-
 const options = {
   headers: {
     Authorization:
@@ -25,6 +20,15 @@ export const fetchTrendings = async () => {
 
 export const fetchMovieById = async id => {
   const response = await axios.get(`/movie/${id}?language=en-US`, options);
+
+  return response.data;
+};
+
+export const fetchMovies = async query => {
+  const response = await axios.get(
+    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options
+  );
 
   return response.data;
 };

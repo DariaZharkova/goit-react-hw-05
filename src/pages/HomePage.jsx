@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchTrendings } from '../api';
-import TrendingMoviesList from '../components/TrendingMoviesList/TrendingMoviesList';
+import MoviesList from '../components/MoviesList/MoviesList';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import Loader from '../components/Loader/Loader';
 
@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <main>
       <h1>Trending Movies</h1>
-      {trendings.length && <TrendingMoviesList items={trendings} />}
+      {trendings.length > 0 && <MoviesList items={trendings} />}
       {error && <ErrorMessage />}
       {loading && <Loader />}
     </main>
