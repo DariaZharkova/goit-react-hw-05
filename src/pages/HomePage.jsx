@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchData } from '../api';
+import { fetchTrendings } from '../api';
 import TrendingMoviesList from '../components/TrendingMoviesList/TrendingMoviesList';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import Loader from '../components/Loader/Loader';
 
 export default function HomePage() {
   const [trendings, setTrendings] = useState([]);
@@ -8,11 +10,11 @@ export default function HomePage() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    async function fetchTrendings() {
+    async function fetchData() {
       try {
         setLoading(true);
         setError(false);
-        const fetchedData = await fetchData();
+        const fetchedData = await fetchTrendings();
         setTrendings(fetchedData);
       } catch (error) {
         setError(true);
@@ -20,13 +22,15 @@ export default function HomePage() {
         setLoading(false);
       }
     }
-    fetchTrendings();
-  });
+    fetchData();
+  }, []);
 
   return (
     <main>
       <h1>Trending Movies</h1>
-      <TrendingMoviesList items={trendings} />
+      {trendings.length && <TrendingMoviesList items={trendings} />}
+      {error && <ErrorMessage />}
+      {loading && <Loader />}
     </main>
   );
 }

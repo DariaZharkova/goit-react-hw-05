@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-const url =
-  'https://api.themoviedb.org/3/trending/movie/week?include_adult=false&language=en-US&page=1';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+
+// --url 'https://api.themoviedb.org/3/movie/movie_id?language=en-US' \
+
+// const urlTrendings =
+// 'https://api.themoviedb.org/3/trending/movie/week?include_adult=false&language=en-US&page=1';
 
 const options = {
   headers: {
@@ -10,23 +14,17 @@ const options = {
   },
 };
 
-export const fetchData = async () => {
-  const response = await axios.get(url, options);
+export const fetchTrendings = async () => {
+  const response = await axios.get(
+    '/trending/movie/week?include_adult=false&language=en-US&page=1',
+    options
+  );
 
   return response.data.results;
 };
 
-// export const getTrendMovies = async query => {
-//   try {
-//     const response = await axios.get(urlTrend, {
-//       params: {
-//         ...options.params,
-//         query: query,
-//       },
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// };
+export const fetchMovieById = async id => {
+  const response = await axios.get(`/movie/${id}?language=en-US`, options);
+
+  return response.data;
+};

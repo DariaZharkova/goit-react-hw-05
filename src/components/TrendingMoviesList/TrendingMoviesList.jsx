@@ -7,7 +7,7 @@ export default function TrendingMoviesList({ items }) {
     <ul>
       {items.map(item => (
         <li key={item.id}>
-          <Link to={`/movie/${item.id}`} state={{ from: location }}>
+          <Link to={`/movies/${item.id}`} state={{ from: location }}>
             {item.title}
           </Link>
         </li>

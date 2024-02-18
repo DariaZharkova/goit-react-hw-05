@@ -3,9 +3,9 @@ import AppBar from './AppBar/AppBar';
 import NotFoundPage from '../pages/NotFoundPage';
 import MoviesPage from '../pages/MoviesPage';
 import HomePage from '../pages/HomePage';
-// import MovieDetailsPage from '../pages/MovieDetailsPage';
-// import MovieCast from './MovieCast/MovieCast';
-// import MovieReviews from './MovieReviews/MovieReviews';
+import MovieDetailsPage from '../pages/MovieDetailsPage';
+import MovieCast from './MovieCast/MovieCast';
+import MovieReviews from './MovieReviews/MovieReviews';
 
 function App() {
   return (
@@ -15,10 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
-        {/* <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
           <Route path="cast" element={<MovieCast />} />
           <Route path="reviews" element={<MovieReviews />} />
-        </Route> */}
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
