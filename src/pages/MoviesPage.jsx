@@ -1,21 +1,24 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { fetchMovies } from '../api';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import SearchBox from '../components/SearchBox/SearchBox';
-import { Toaster } from 'react-hot-toast';
 import MoviesList from '../components/MoviesList/MoviesList';
-import { fetchMovies } from '../api';
 
 export default function MoviesPage() {
-  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [nothingFound, setNothingFound] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
+
   const searchMovies = newQuery => {
-    setQuery(newQuery);
-    setMovies([]);
+    params.set('query', newQuery);
+    setParams(params);
     setNothingFound(false);
   };
 

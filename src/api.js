@@ -11,7 +11,7 @@ const options = {
 
 export const fetchTrendings = async () => {
   const response = await axios.get(
-    '/trending/movie/week?include_adult=false&language=en-US&page=1',
+    '/trending/movie/day?include_adult=false&language=en-US&page=1',
     options
   );
 
@@ -27,6 +27,24 @@ export const fetchMovieById = async id => {
 export const fetchMovies = async query => {
   const response = await axios.get(
     `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options
+  );
+
+  return response.data;
+};
+
+export const fetchMovieCast = async id => {
+  const response = await axios.get(
+    `/movie/${id}/credits?language=en-US`,
+    options
+  );
+
+  return response.data.cast;
+};
+
+export const fetchMovieReviews = async id => {
+  const response = await axios.get(
+    `/movie/${id}/reviews?language=en-US&page=1`,
     options
   );
 

@@ -7,7 +7,7 @@ export default function MoviesList({ items }) {
     <ul>
       {items.map(item => (
         <li key={item.id}>
-          <Link to={`/movies/${item.id}`} state={{ from: location }}>
+          <Link to={`/movies/${item.id}`} state={location}>
             {item.title}
           </Link>
         </li>

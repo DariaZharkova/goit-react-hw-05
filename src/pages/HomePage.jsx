@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <h1>Trending Movies</h1>
+      <h1>Trending today</h1>
       {trendings.length > 0 && <MoviesList items={trendings} />}
       {error && <ErrorMessage />}
       {loading && <Loader />}
