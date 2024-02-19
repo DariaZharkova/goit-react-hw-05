@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 25px;
+}
+
+.item {
+  max-width: 120px;
+}
+
+.wrap {
+  border: 1px solid white;
+  border-top: none;
+  padding: 6px;
+  height: 110px;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.name {
+  font-size: 14px;
+}
+.character {
+  font-size: 12px;
+}

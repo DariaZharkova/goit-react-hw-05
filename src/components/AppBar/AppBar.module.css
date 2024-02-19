@@ -1,0 +1,38 @@
+.header {
+  width: 100%;
+  padding: 10px 25px;
+
+  display: flex;
+  align-items: flex-end;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 30px -10px #26394d;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 100px;
+}
+
+.span {
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(255, 162, 0);
+}

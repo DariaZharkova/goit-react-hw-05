@@ -10,11 +10,12 @@ const buildLinkClass = ({ isActive }) => {
 export default function AppBar() {
   return (
     <header className={css.header}>
-      <p className={css.logo}>
+      <div className={css.logo}>
         <img src={HeaderIcon} alt="movies oscar icon" width="40" height="40" />
-        Find
-        <span>Movie</span>
-      </p>
+        <p>
+          Find<span className={css.span}>Movie</span>
+        </p>
+      </div>
 
       <nav className={css.nav}>
         <NavLink to="/" className={buildLinkClass}>

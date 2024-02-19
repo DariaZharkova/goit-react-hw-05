@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { fetchTrendings } from '../api';
-import MoviesList from '../components/MoviesList/MoviesList';
-import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
-import Loader from '../components/Loader/Loader';
+import { fetchTrendings } from '../../api';
+import MoviesList from '../../components/MoviesList/MoviesList';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Loader from '../../components/Loader/Loader';
+import css from './HomePage.module.css';
 
 export default function HomePage() {
   const [trendings, setTrendings] = useState([]);
@@ -26,8 +27,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main>
-      <h1>Trending today</h1>
+    <main className={css.main}>
+      <h1 className={css.title}>Trending today</h1>
       {trendings.length > 0 && <MoviesList items={trendings} />}
       {error && <ErrorMessage />}
       {loading && <Loader />}

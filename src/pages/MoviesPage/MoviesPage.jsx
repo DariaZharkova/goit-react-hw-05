@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { fetchMovies } from '../api';
-import Loader from '../components/Loader/Loader';
-import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
-import SearchBox from '../components/SearchBox/SearchBox';
-import MoviesList from '../components/MoviesList/MoviesList';
+import { fetchMovies } from '../../api';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import MoviesList from '../../components/MoviesList/MoviesList';
+import css from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -46,7 +47,7 @@ export default function MoviesPage() {
   }, [query]);
 
   return (
-    <main>
+    <main className={css.main}>
       <SearchBox onSearch={searchMovies} />
       {movies.length > 0 && <MoviesList items={movies} />}
       {nothingFound && (

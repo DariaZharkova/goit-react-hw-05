@@ -3,6 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
+  color: antiquewhite;
+  background-color: black;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,4 +32,9 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -33,53 +33,53 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <>
+    <main className={css.main}>
       {movie && (
         <>
           <GoBackLink href={backLinkRef.current ?? '/movies'} />
 
+          <div className={css.topWrap}>
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : defaultPoster
+              }
+              alt={movie.title}
+              width="270"
+            />
+            <div>
+              <h1 className={css.title}>{movie.title}</h1>
+              <p className={css.score}>
+                User Score:{' '}
+                <span className={css.span}>{movie.vote_average}</span>
+              </p>
+              <h2>Overview</h2>
+              <p className={css.overview}>{movie.overview}</p>
+              <h2>Genres:</h2>
+              <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+            </div>
+          </div>
+          <div className={css.bottomWrap}>
+            <h2 className={css.additional}>Additional informaion</h2>
+            <ul className={css.list}>
+              <li className={css.item}>
+                <NavLink to="cast">Cast</NavLink>
+              </li>
+              <li className={css.item}>
+                <NavLink to="reviews">Reviews</NavLink>
+              </li>
+            </ul>
+          </div>
           <div>
-            <div className={css.wrapper}>
-              <img
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                    : defaultPoster
-                }
-                alt={movie.title}
-              />
-              <div>
-                <h1>{movie.title}</h1>
-                <p>
-                  User Score: <span>{movie.vote_average}</span>
-                </p>
-                <h2>Overview</h2>
-                <p>{movie.overview}</p>
-                <h2>Genres:</h2>
-                <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
-              </div>
-            </div>
-            <div>
-              <h2>Additional informaion</h2>
-              <ul>
-                <li>
-                  <NavLink to="cast">Cast</NavLink>
-                </li>
-                <li>
-                  <NavLink to="reviews">Reviews</NavLink>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <Suspense fallback={null}>
-                <Outlet />
-              </Suspense>
-            </div>
+            <Suspense fallback={null}>
+              <Outlet />
+            </Suspense>
           </div>
         </>
       )}
       {error && <ErrorMessage />}
       {loading && <Loader />}
-    </>
+    </main>
   );
 }
