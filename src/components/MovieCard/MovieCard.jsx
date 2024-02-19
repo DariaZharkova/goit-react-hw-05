@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import defaultPoster from './default_movie_poster.png';
 import css from './MovieCard.module.css';
 
 export default function MovieCard({ movie }) {
@@ -6,7 +7,11 @@ export default function MovieCard({ movie }) {
     <div>
       <div className={css.wrapper}>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              : defaultPoster
+          }
           alt={movie.title}
         />
         <div>
