@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import css from './AppBar.module.css';
 import HeaderIcon from './Movies_Oscar_icon.png';
+import css from './AppBar.module.css';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
