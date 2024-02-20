@@ -27,7 +27,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className={css.main}>
+    <main>
       <h1 className={css.title}>Trending today</h1>
       {trendings.length > 0 && <MoviesList items={trendings} />}
       {error && <ErrorMessage />}

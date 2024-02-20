@@ -6,7 +6,6 @@ import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import MoviesList from '../../components/MoviesList/MoviesList';
-import css from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -47,7 +46,7 @@ export default function MoviesPage() {
   }, [query]);
 
   return (
-    <main className={css.main}>
+    <main>
       <SearchBox onSearch={searchMovies} />
       {movies.length > 0 && <MoviesList items={movies} />}
       {nothingFound && (

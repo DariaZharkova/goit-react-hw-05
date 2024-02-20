@@ -1,0 +1,15 @@
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  color: burlywood;
+  font-size: 18px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

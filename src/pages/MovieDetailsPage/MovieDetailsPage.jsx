@@ -1,11 +1,16 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import clsx from 'clsx';
 import { fetchMovieById } from '../../api';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Loader from '../../components/Loader/Loader';
 import GoBackLink from '../../components/GoBackLink/GoBackLink';
 import defaultPoster from './default_movie_poster.png';
 import css from './MovieDetailsPage.module.css';
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
+};
 
 export default function MovieDetailsPage() {
   const location = useLocation();
@@ -33,7 +38,7 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <main className={css.main}>
+    <main>
       {movie && (
         <>
           <GoBackLink href={backLinkRef.current ?? '/movies'} />
@@ -63,11 +68,15 @@ export default function MovieDetailsPage() {
           <div className={css.bottomWrap}>
             <h2 className={css.additional}>Additional informaion</h2>
             <ul className={css.list}>
-              <li className={css.item}>
-                <NavLink to="cast">Cast</NavLink>
+              <li>
+                <NavLink to="cast" className={buildLinkClass}>
+                  Cast
+                </NavLink>
               </li>
-              <li className={css.item}>
-                <NavLink to="reviews">Reviews</NavLink>
+              <li>
+                <NavLink to="reviews" className={buildLinkClass}>
+                  Reviews
+                </NavLink>
               </li>
             </ul>
           </div>

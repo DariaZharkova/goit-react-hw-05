@@ -1,0 +1,16 @@
+.wrap {
+  max-width: 90px;
+  margin-bottom: 10px;
+}
+
+.link {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
