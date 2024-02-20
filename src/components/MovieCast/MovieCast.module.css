@@ -7,13 +7,16 @@
 
 .item {
   max-width: 120px;
+  background-color: rgb(33, 33, 33);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .wrap {
-  border: 1px solid white;
-  border-top: none;
   padding: 6px;
   height: 110px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .img {

@@ -2,8 +2,14 @@
   list-style: none;
 }
 
+.item {
+  padding: 8px;
+  background-color: rgb(33, 33, 33);
+  border-radius: 5px;
+}
+
 .item:not(:last-child) {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .author {
@@ -13,4 +19,12 @@
 
 .content {
   font-size: 14px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: burlywood;
+  cursor: pointer;
+  font-size: 18px;
 }

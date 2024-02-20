@@ -11,6 +11,7 @@ export default function MovieReviews() {
   const [nothingFound, setNothingFound] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -35,12 +36,20 @@ export default function MovieReviews() {
     <>
       {reviews.length > 0 && (
         <ul className={css.list}>
-          {reviews.map(review => (
-            <li className={css.item} key={review.id}>
+          {reviews.map(({ id, author, content }) => (
+            <li className={css.item} key={id}>
               <h3>
-                <span className={css.author}>Author:</span> {review.author}
+                <span className={css.author}>Author:</span> {author}
               </h3>
-              <p className={css.content}>{review.content}</p>
+              <p className={css.content}>
+                {showMore ? content : `${content.substring(0, 350)}`}
+                <button
+                  className={css.btn}
+                  onClick={() => setShowMore(!showMore)}
+                >
+                  {showMore ? '<<' : '>>'}
+                </button>
+              </p>
             </li>
           ))}
         </ul>
