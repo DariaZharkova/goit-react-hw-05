@@ -11,20 +11,3 @@
 .item:not(:last-child) {
   margin-bottom: 15px;
 }
-
-.author {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.content {
-  font-size: 14px;
-}
-
-.btn {
-  border: none;
-  background-color: transparent;
-  color: burlywood;
-  cursor: pointer;
-  font-size: 18px;
-}
