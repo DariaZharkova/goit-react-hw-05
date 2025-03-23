@@ -13,12 +13,13 @@ export default function MoviesPage() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const [params, setParams] = useSearchParams();
-  const query = params.get('query') ?? '';
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
   const searchMovies = newQuery => {
-    params.set('query', newQuery);
-    setParams(params);
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.set('query', newQuery);
+    setSearchParams(nextParams);
     setNothingFound(false);
   };
 
